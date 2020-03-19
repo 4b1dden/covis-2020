@@ -1,0 +1,95 @@
+.strapper {
+  width: 100%;
+}
+
+.containerStrapper {
+  max-width: initial;
+  margin-left: 0;
+}
+
+.var-slider {
+  /* background-color: rgb(144, 144, 144); */
+}
+
+.chart-wrapper {
+  margin-top: 1rem;
+}
+
+.slider-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.slider-value {
+  font-family: 'Source Code Pro', monospace;
+  float: right;
+  font-size: 0.7rem;
+}
+
+.rc-slider {
+  margin-top: 1rem;
+}
+
+.default-text {
+  font-size: .85em;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.quarantine-toggle {
+  float: left;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.quarantine-wrapper {
+  width: 100%;
+}
+
+.calculator-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 2rem;
+  padding-right: 25px;
+}
+
+.curve-selection-wrapper {
+  text-align: left;
+}
+
+span.rc-checkbox-checked.checkbox-S span.rc-checkbox-inner  {
+  background-color: #f1f740;
+  border-color: #f1f740;
+}
+
+span.rc-checkbox-checked.checkbox-E span.rc-checkbox-inner {
+  background-color: #ffc663;
+  border-color: #ffc663;
+}
+
+span.rc-checkbox-checked.checkbox-I span.rc-checkbox-inner  {
+  background-color: rgb(240, 2, 127);
+  border-color: rgb(240, 2, 127);
+}
+
+span.rc-checkbox-checked.checkbox-R span.rc-checkbox-inner {
+  background-color: #63c3ff;
+  border-color: #63c3ff;
+}
+
+span.rc-checkbox-checked.checkbox-H span.rc-checkbox-inner  {
+  background-color: #8ab5ff;
+  border-color: #8ab5ff;
+}
+
+.highlight {
+  font-weight: 600;
+}
+
+.text-S {
+  color: #f1f740;
+}
+
+.text-E {
+  color: #ffc663;
+}
+
