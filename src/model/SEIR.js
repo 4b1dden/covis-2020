@@ -23,7 +23,7 @@ type Params = {
 export const seirModel = (initialValues: InitialValues, params: Params, tList) => {
   const { S0, E0, I0, R0, H0, MILD0 = 0, MODERATE0 = 0, FATAL0 = 0} = initialValues;
   let [S, E, I, R, H, MILD, MODERATE, FATAL] = [[S0], [E0], [I0], [R0], [H0], [0], [0], [0]];
-  let { alpha, beta, gamma, isQuarantined, quarantinePower = 1, hospitalizationRate = 0.3, fatalityRate = 0.037, hospitalizationTime = 10, quarantineStart } = params;
+  let { alpha, beta, gamma, isQuarantined, quarantinePower = 1, hospitalizationRate = 0.15, fatalityRate = 0.037, hospitalizationTime = 14, quarantineStart } = params;
   const dt = tList[1] - tList[0];
   let deltaBeta = false;
 

@@ -65,7 +65,7 @@ export const Strapper = () => {
           <Row>
           <div className="quarantine-wrapper">
             <div className="quarantine-toggle">
-              <Checkbox checked={quarantine} onChange={event => setQuarantine(event.target.checked)} /> <span className="default-text">Karanténa?</span>
+              <Checkbox checked={quarantine} onChange={event => setQuarantine(event.target.checked)} /> <span className="bold default-text">Karanténa</span>
             </div>
           </div>
           </Row>

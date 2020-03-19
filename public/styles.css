@@ -93,6 +93,10 @@ span.rc-checkbox-checked.checkbox-H span.rc-checkbox-inner  {
   color: #ffc663;
 }
 
+.bold {
+  font-weight: 600;
+}
+
 .r0 {
   float: left;
 }
