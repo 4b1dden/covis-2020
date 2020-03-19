@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { CovidSpreadModel } from './components/CovidSpreadModel';
 import { SimpleHorizontalSlider } from './components/SimpleHorizontalSlider';
 import { curveDescriptions, curveColors } from './model/data';
+import { Notes } from './components/Notes'
 import Checkbox from 'rc-checkbox';
 import 'rc-checkbox/assets/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -10,9 +11,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 const defaultPopulationSize = 50;
 const defaultIncubationTime = 5.1;
 const defaultInfectionTime = 2.38;
-const defaultContactRate = 15;
-const defaultProbabilityOfTransmission = 1/15;
-const defaultQuarantinePower = .8;
+const defaultContactRate = 20;
+const defaultProbabilityOfTransmission = 1/18;
+const defaultQuarantinePower = .5;
 const curveSelection = ["S", "E", "I", "R", "H"];
 const defaultQuarantineStart = 20;
 
@@ -98,7 +99,7 @@ export const Strapper = () => {
             href="https://www.fhi.no/en/op/novel-coronavirus-facts-advice/advice-to-health-personnel/definitions-of-probable-and-confirmed-cases-of-coronavirus-covid-19-and-con/" 
             > blízkych kontaktov </a>, ktoré majú jedinci v populácii. Ťažko opísateľná veličina pri chorobách širacich sa kvapôčkami, ale zavádzame ju pre ilustráciu.
           </SimpleHorizontalSlider>
-          <SimpleHorizontalSlider valueFormatter={val => `${(val * 100).toFixed(2)}%`}  {...defaultSliderProps} title={"Šanca prenosu choroby"} value={probabilityOfTransmission} setValue={setProbabilityOfTransmission} max={1} step={0.01}>
+          <SimpleHorizontalSlider valueFormatter={val => `${(val.toFixed(4) * 100)}%`}  {...defaultSliderProps} title={"Šanca prenosu choroby"} value={probabilityOfTransmission} setValue={setProbabilityOfTransmission} max={1} step={0.0001}>
             Šanca prenosu choroby pri blízkom kontakte medzi ohrozeným a infikovaným.
           </SimpleHorizontalSlider>
         </Col>
@@ -114,6 +115,7 @@ export const Strapper = () => {
             probabilityOfTransmission={probabilityOfTransmission}
             curveList={curves}
           />
+          <Notes />
         </Col>
       </Row>
     </Container>

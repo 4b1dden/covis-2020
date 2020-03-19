@@ -4,9 +4,10 @@ import { normaliseToArray } from '../model/normalisation'
 import {
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart, Label, ReferenceLine, Customized, ReferenceDot
 } from 'recharts';
-import { curveColors, curveFormatters, curveStackId, curveFills } from '../model/data'
-import { CustomizedReferenceLineLabel } from './CustomizedReferenceLineLabel'
-import { getRealData, parseRealData } from '../model/realData'
+import { curveColors, curveFormatters, curveStackId, curveFills } from '../model/data';
+import { CustomizedReferenceLineLabel } from './CustomizedReferenceLineLabel';
+import { getRealData, parseRealData } from '../model/realData';
+import Latex from 'react-latex-next';
 
 type CovidSpreadModelProps = {
   N: Number,
@@ -45,6 +46,7 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
 
   const simulation = seirModel(initialValues, {alpha, beta, gamma, isQuarantined, quarantinePower, quarantineStart}, t);
   const normalised = normaliseToArray(simulation, 1/dt, N);
+  const r0 = contactRate * probabilityOfTransmission * infectionTime;
 
   // useMemo(() => getRealData().then(data => {
   //   setRealWorldData(
@@ -54,6 +56,9 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
 
   return (
     <div class="chart-wrapper">
+      <div class="r0 default-text">
+        <Latex>$R_0$</Latex> pre túto konfiguráciu = { r0.toFixed(2)}
+      </div>
         <AreaChart
           width={800}
           height={300}

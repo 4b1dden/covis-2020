@@ -93,3 +93,19 @@ span.rc-checkbox-checked.checkbox-H span.rc-checkbox-inner  {
   color: #ffc663;
 }
 
+.r0 {
+  float: left;
+}
+
+.notes-title {
+  font-weight: 600;
+}
+
+.notes-wrapper {
+  margin-top: 1.5rem;
+  text-align: justify;
+}
+
+.note-block {
+  margin-top: 1rem;
+}

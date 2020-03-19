@@ -29,7 +29,7 @@ export const seirModel = (initialValues: InitialValues, params: Params, tList) =
 
   tList.forEach((currentT, i) => {
     if (currentT >= quarantineStart) {
-      beta = isQuarantined && !deltaBeta ? beta * quarantinePower : beta;
+      beta = isQuarantined && !deltaBeta ? beta * (1 - Math.pow(quarantinePower, 2)) : beta;
       deltaBeta = true;
     }
 
