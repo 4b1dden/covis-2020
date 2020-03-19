@@ -1,0 +1,49 @@
+.strapper {
+  width: 100%;
+}
+
+.containerStrapper {
+  max-width: initial;
+  margin-left: 0;
+}
+
+.var-slider {
+  /* background-color: rgb(144, 144, 144); */
+}
+
+.slider-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.slider-value {
+  font-family: 'Source Code Pro', monospace;
+  float: right;
+  font-size: 0.7rem;
+}
+
+.rc-slider {
+  margin-top: 1rem;
+}
+
+.default-text {
+  font-size: .85em;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.quarantine-toggle {
+  float: left;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.quarantine-wrapper {
+  width: 100%;
+}
+
+.calculator-title {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 2rem;
+  padding-right: 25px;
+}
