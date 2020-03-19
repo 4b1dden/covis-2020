@@ -1,26 +1,27 @@
 {
   "files": {
     "main.css": "/covis-2020/static/css/main.d1b05096.chunk.css",
-    "main.js": "/covis-2020/static/js/main.861da9ba.chunk.js",
-    "main.js.map": "/covis-2020/static/js/main.861da9ba.chunk.js.map",
+    "main.js": "/covis-2020/static/js/main.1c974ba6.chunk.js",
+    "main.js.map": "/covis-2020/static/js/main.1c974ba6.chunk.js.map",
     "runtime-main.js": "/covis-2020/static/js/runtime-main.ea0e90ae.js",
     "runtime-main.js.map": "/covis-2020/static/js/runtime-main.ea0e90ae.js.map",
-    "static/css/2.59c6c6bb.chunk.css": "/covis-2020/static/css/2.59c6c6bb.chunk.css",
-    "static/js/2.e2aeeb18.chunk.js": "/covis-2020/static/js/2.e2aeeb18.chunk.js",
-    "static/js/2.e2aeeb18.chunk.js.map": "/covis-2020/static/js/2.e2aeeb18.chunk.js.map",
+    "static/css/2.8daec798.chunk.css": "/covis-2020/static/css/2.8daec798.chunk.css",
+    "static/js/2.bfe00bcd.chunk.js": "/covis-2020/static/js/2.bfe00bcd.chunk.js",
+    "static/js/2.bfe00bcd.chunk.js.map": "/covis-2020/static/js/2.bfe00bcd.chunk.js.map",
     "index.html": "/covis-2020/index.html",
-    "precache-manifest.d8169cb782e9e998e7eaedfe5c55ea33.js": "/covis-2020/precache-manifest.d8169cb782e9e998e7eaedfe5c55ea33.js",
+    "precache-manifest.ee31cd91a6b44c0f7482af7443593c4a.js": "/covis-2020/precache-manifest.ee31cd91a6b44c0f7482af7443593c4a.js",
     "service-worker.js": "/covis-2020/service-worker.js",
-    "static/css/2.59c6c6bb.chunk.css.map": "/covis-2020/static/css/2.59c6c6bb.chunk.css.map",
+    "static/css/2.8daec798.chunk.css.map": "/covis-2020/static/css/2.8daec798.chunk.css.map",
     "static/css/main.d1b05096.chunk.css.map": "/covis-2020/static/css/main.d1b05096.chunk.css.map",
-    "static/js/2.e2aeeb18.chunk.js.LICENSE.txt": "/covis-2020/static/js/2.e2aeeb18.chunk.js.LICENSE.txt",
+    "static/js/2.bfe00bcd.chunk.js.LICENSE.txt": "/covis-2020/static/js/2.bfe00bcd.chunk.js.LICENSE.txt",
+    "static/media/katex.min.css": "/covis-2020/static/media/KaTeX_Typewriter-Regular.6cc31ea5.woff2",
     "static/media/logo.svg": "/covis-2020/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.ea0e90ae.js",
-    "static/css/2.59c6c6bb.chunk.css",
-    "static/js/2.e2aeeb18.chunk.js",
+    "static/css/2.8daec798.chunk.css",
+    "static/js/2.bfe00bcd.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.861da9ba.chunk.js"
+    "static/js/main.1c974ba6.chunk.js"
   ]
 }
