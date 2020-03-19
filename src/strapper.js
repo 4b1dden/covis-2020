@@ -83,20 +83,23 @@ export const Strapper = () => {
             setPopulationSizeSlider(val);
             setPopulationSize(logslider(populationSizeSlider))
           }} min={0} max={100}>
-            Veľkosť sociálnej skupiny, v rámci ktorej modelujeme šírenie choroby. Väčšinou máme na mysli nejakú krajinu, no samotná veľkosť skupiny má však minimálny vplyv na vývin situácie v nej. 
+            Veľkosť sociálnej skupiny, v rámci ktorej modelujeme šírenie choroby.
           </SimpleHorizontalSlider>
-          <SimpleHorizontalSlider {...defaultSliderProps} title={"Infekčný čas"} value={incubationTime} valueFormatter={val => `${val} dní`} setValue={setIncubationTime} max={8} step={0.01}>
-            Charakterizuje prechod medzi chorými v inkubačnej dobe a chorými-infekčnými (štádium E -> I).
+          <SimpleHorizontalSlider {...defaultSliderProps} title={"Infekčný čas"} value={infectionTime} valueFormatter={val => `${val} dní`} setValue={setInfectionTime} max={8} step={0.01}>
+            Doba, počas ktorej jedinec potenciálne šíri ochorenie. Priemerný čas od vypuknutia choroby po izoláciu jedinca (štádium I -> R).
           </SimpleHorizontalSlider>
-          <SimpleHorizontalSlider valueFormatter={val => `${val} dní`} title={"Inkubačný čas"} value={infectionTime} setValue={setInfectionTime} min={0} max={5} step={0.1}>
-            Obdobie od vstupu nákazy do organizmu po vypuknutie choroby. Jediný parameter, ktorý je čisto biologický a nevieme ho ovplyvniť. Vychádzame z poslednej 
-            <a target="_tab" href="https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(20)30074-7/fulltext"> dostupnej štúdie</a>.
+          <SimpleHorizontalSlider valueFormatter={val => `${val} dní`} title={"Inkubačná doba"} value={incubationTime} setValue={setIncubationTime} min={0} max={10} step={0.1}>
+            Obdobie od vstupu nákazy do organizmu po vypuknutie choroby. Jediný parameter, ktorý je čisto biologický a nevieme ho ovplyvniť. Vychádzame z 
+            <a target="_tab" href="https://annals.org/aim/fullarticle/2762808/incubation-period-coronavirus-disease-2019-covid-19-from-publicly-reported"> poslednej dostupnej štúdie.</a> 
           </SimpleHorizontalSlider>
-          <SimpleHorizontalSlider {...defaultSliderProps} title={"Pomer ľudského kontaktu"} value={contactRate} setValue={setContactRate} max={20}>
-            Charakterizuje prechod medzi ohrozenou skupinou obyvateľstva a chorými v inkubačnej dobe - S -> E.
+          <SimpleHorizontalSlider {...defaultSliderProps} valueFormatter={val => `${val} blízkych kontaktov`} title={"Pomer ľudského kontaktu"} value={contactRate} min={5} setValue={setContactRate} max={25}>
+            Je to priemerný počet 
+            <a target="_tab" 
+            href="https://www.fhi.no/en/op/novel-coronavirus-facts-advice/advice-to-health-personnel/definitions-of-probable-and-confirmed-cases-of-coronavirus-covid-19-and-con/" 
+            > blízkych kontaktov </a>, ktoré majú jedinci v populácii. Ťažko opísateľná veličina pri chorobách širacich sa kvapôčkami, ale zavádzame ju pre ilustráciu.
           </SimpleHorizontalSlider>
-          <SimpleHorizontalSlider {...defaultSliderProps} title={"Šanca prenosu choroby"} value={probabilityOfTransmission} setValue={setProbabilityOfTransmission} max={1} step={0.01}>
-            proste Šanca prenosu choroby brashko nechapes co si jak
+          <SimpleHorizontalSlider valueFormatter={val => `${(val * 100).toFixed(2)}%`}  {...defaultSliderProps} title={"Šanca prenosu choroby"} value={probabilityOfTransmission} setValue={setProbabilityOfTransmission} max={1} step={0.01}>
+            Šanca prenosu choroby pri blízkom kontakte medzi ohrozeným a infikovaným.
           </SimpleHorizontalSlider>
         </Col>
         <Col xs={8} sm={8} md={8} lg={8} xl={8}>

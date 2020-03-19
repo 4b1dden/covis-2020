@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import { seirModel } from '../model/SEIR';
 import { normaliseToArray } from '../model/normalisation'
 import {
-  XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart, Label, ReferenceLine, Customized
+  XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart, Label, ReferenceLine, Customized, ReferenceDot
 } from 'recharts';
 import { curveColors, curveFormatters, curveStackId, curveFills } from '../model/data'
 import { CustomizedReferenceLineLabel } from './CustomizedReferenceLineLabel'
+import { getRealData, parseRealData } from '../model/realData'
 
 type CovidSpreadModelProps = {
   N: Number,
@@ -25,6 +26,7 @@ const dt = .1;
 const numberWithCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
+  const [realWorldData, setRealWorldData] = useState([]);
   const { N, incubationTime, infectionTime, contactRate, probabilityOfTransmission, isQuarantined = false, quarantinePower, curveList, quarantineStart } = props;
   let t = [];
   for (let i = 0; i < t_max; i += dt) t.push(i);
@@ -43,6 +45,12 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
 
   const simulation = seirModel(initialValues, {alpha, beta, gamma, isQuarantined, quarantinePower, quarantineStart}, t);
   const normalised = normaliseToArray(simulation, 1/dt, N);
+
+  // useMemo(() => getRealData().then(data => {
+  //   setRealWorldData(
+  //     parseRealData(data)
+  //   );
+  // }), [])
 
   return (
     <div class="chart-wrapper">
@@ -83,6 +91,11 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
         <YAxis tickFormatter={val => numberWithCommas(val)}/>
         {/* <YAxis scale="log" /> */}
         <Tooltip formatter={(value, id) =>`${curveFormatters[id](Math.round(value))}`}/>
+
+        {realWorldData ? 
+          realWorldData.map((datapoint, i) => <ReferenceDot key={i} r={1} x={datapoint.T} y={datapoint.confirmed} />)
+          : ""
+        }
 
         {Object.keys(curveList).map((curveId, id) => curveList[curveId] ? 
           <Area key={id} type="monotone" dataKey={curveId} stackId={curveStackId[curveId]} fill={curveFills[curveId] || curveColors[curveId]} stroke={curveColors[curveId]} />
