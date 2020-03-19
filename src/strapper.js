@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { CovidSpreadModel } from './components/CovidSpreadModel';
 import { SimpleHorizontalSlider } from './components/SimpleHorizontalSlider';
@@ -13,13 +13,17 @@ const defaultInfectionTime = 2.38;
 const defaultContactRate = 15;
 const defaultProbabilityOfTransmission = 1/15;
 const defaultQuarantinePower = .8;
+const curveSelection = ["S", "E", "I", "R", "H"];
+const defaultQuarantineStart = 20;
 
 const defaultSliderProps = {
   min: 0,
   step: 0.1
 }
 
-function logslider(position) {
+const numberWithCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+const logslider = position => {
   var minp = 0;
   var maxp = 100;
   var minv = Math.log(10000);
@@ -40,6 +44,7 @@ export const Strapper = () => {
   const [infectionTime, setInfectionTime] = useState(defaultInfectionTime);
   const [contactRate, setContactRate] = useState(defaultContactRate);
   const [quarantinePower, setQuarantinePower] = useState(defaultQuarantinePower);
+  const [quarantineStart, setQuarantineStart] = useState(defaultQuarantineStart);
   const [probabilityOfTransmission, setProbabilityOfTransmission] = useState(defaultProbabilityOfTransmission);
   const [quarantine, setQuarantine] = useState(false);
 
@@ -50,10 +55,12 @@ export const Strapper = () => {
       </Row>
       <Row>
         <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-          {["S", "E", "I", "R", "H", "FATAL"].map(curveId => <div>
+          <div className="curve-selection-wrapper">
+            {curveSelection.map(curveId => <div>
               <Checkbox className={`checkbox-${curveId}`} name={curveId} checked={curves[curveId]} onChange={event => onCurveSelect(event.target)} /> 
-              <span className="default-text">{curveDescriptions[curveId]}</span>
+              <span className="default-text"> {curveDescriptions[curveId]}</span>
             </div>)}
+          </div>
           <Row>
           <div className="quarantine-wrapper">
             <div className="quarantine-toggle">
@@ -61,12 +68,18 @@ export const Strapper = () => {
             </div>
           </div>
           </Row>
-          {quarantine ? <SimpleHorizontalSlider title={"Sila karantény"} value={quarantinePower} setValue={setQuarantinePower} min={0} max={1} step={0.01}>
-               Je to jednotka, ktorú zavádzame pre ilustráciu efektu, ktorý má sociálne dištancovanie na šírenie choroby. Napríklad hodnota 0.8 teda predstavuje 80% zníženie blízkych kontaktov a infekčnej doby jedincov.
-             </SimpleHorizontalSlider>
-             : ""
+          {quarantine ? 
+            <Fragment>
+                <SimpleHorizontalSlider title={"Začiatok karantény"} value={quarantineStart} setValue={setQuarantineStart} min={0} max={200} step={1}>
+                  Deň, v ktorom bola zavedená karanténa.
+                </SimpleHorizontalSlider>
+                <SimpleHorizontalSlider title={"Sila karantény"} value={quarantinePower} setValue={setQuarantinePower} min={0} max={1} step={0.01}>
+                  Je to jednotka, ktorú zavádzame pre ilustráciu efektu, ktorý má sociálne dištancovanie na šírenie choroby. Napríklad hodnota 0.8 teda predstavuje 80% zníženie blízkych kontaktov a infekčnej doby jedincov.
+                </SimpleHorizontalSlider>
+            </Fragment>
+            : ""
           }
-          <SimpleHorizontalSlider title={"Veľkosť populácie"} valueFormatter={val => `${Math.round(val)} ľudí`} showValue={populationSize} value={populationSizeSlider} setValue={(val) => {
+          <SimpleHorizontalSlider title={"Veľkosť populácie"} valueFormatter={val => `${numberWithCommas(Math.round(val))} ľudí`} showValue={populationSize} value={populationSizeSlider} setValue={(val) => {
             setPopulationSizeSlider(val);
             setPopulationSize(logslider(populationSizeSlider))
           }} min={0} max={100}>
@@ -94,6 +107,7 @@ export const Strapper = () => {
             contactRate={contactRate}
             quarantinePower={quarantinePower}
             isQuarantined={quarantine}
+            quarantineStart={quarantineStart}
             probabilityOfTransmission={probabilityOfTransmission}
             curveList={curves}
           />
