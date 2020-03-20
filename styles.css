@@ -25,6 +25,10 @@
   font-size: 0.85rem;
 }
 
+.curve-selection-wrapper {
+  margin-top: 1.3rem;
+}
+
 .slider-value {
   font-family: 'Source Code Pro', monospace;
   float: right;
