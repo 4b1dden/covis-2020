@@ -44,11 +44,7 @@ export const Notes = () => {
           </div>
           <div class="default-text note-block">
             Na modelovanie šírenia COVID-19 sme použili jednoduchý model používaný na infekčné choroby - <a target="_tab" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model"> 
-            model SEIR.</a> 
-            {/* (Susceptible - náchylná, ohrozená skupina obyvateľstva, Exposed - vírus má v tele, ale je v inkubačnej dobe, nie je infekčný, Infected - chorí, 
-            infekční jedinci, Removed - skupina obyvateľstva, ktorá je z modelu vylúčená, či už v izolácii, vyliečení alebo mŕtvi).  */}
-
-            Je to jednoduchý, idealizovaný model, ktorý rozdeľuje spoločnosť do skupín (priehradok) a počas priebehu choroby sa pacienti presúvajú jednotlivými skupinami. Jedným z predpokladov je, že už vyliečený človek ochorieť znova nemôže.
+            model SEIR</a>. (<Latex>$S$</Latex>-Susceptible, <Latex>$E$</Latex>-Exposed, <Latex>$I$</Latex>-Infected, <Latex>$R$</Latex>-Removed). Je to jednoduchý, idealizovaný model, ktorý rozdeľuje spoločnosť do skupín (priehradok) a počas priebehu choroby sa pacienti presúvajú jednotlivými skupinami. Jedným z predpokladov je, že už vyliečený človek ochorieť znova nemôže.
             Každá skupina je popísaná diferenciálnymi rovnicami. 
             Pohyb ľudí, predstavujúci progres ich choroby, je charakterizovaný prechodovými konštantami <Latex>{abg}</Latex>.
             <Latex> $\alpha$</Latex> závisí od inkubačnej doby, <Latex>$\beta$</Latex> od pomeru ľudského kontaktu a šance prenosu a <Latex>$\gamma$</Latex> od infekčného času. 
@@ -61,6 +57,14 @@ export const Notes = () => {
           <div class="note-block">
            Základné reprodukčné číslo <Latex>$R_0$</Latex> pre predvolené hodnoty v našom modeli prepočítavame z pomeru ľudského kontaktu a šance prenosu choroby pre lepšiu ilustráciu významu sociálneho dištancovania tak, aby sedelo s momentálnymi odhadmi expertov. Nie je to bežná prax pri ochoreniach šíriacich sa kvapôčkovo, no pre naše účely nám to príde zaujímavé. 
           </div>
+
+          <div class="note-block">
+            <i>
+              -pri zmene parametrov je dôležité dávať pozor aj na zmeny na ypsilonovej osi, ktorá sa automaticky prispôsobuje počtu jedincov <br />
+              -počet hospitalizovaných je ilustračný, z dôvodu zlej predvídateľnosti tejto veličiny (použili sme 15% - údaj z Číny) a priemernej dĺžky hospitalizácie (ktorá momentálne činí 14 dní) <br />
+              -z podobného dôvodu nejasnosti neuvádzame ani počet obetí 
+            </i>
+            </div>
           </div>
         </Row>
       </div>
