@@ -38,12 +38,12 @@ export const Notes = () => {
           <div class="default-text note-block">
             Vytvorili sme túto kalkulačku s cieľom lepšie ilustrovať momentálnu situáciu a dôležitosť opatrení, ktoré sú momentálne takmer na celom svete. 
             Účelom nášho modelu nie je čo najpresnejšie predpovedať budúcnosť, ale snaha priblížiť matematické modelovanie širšej verejnosti a poskytnúť jednoduchú vizualizáciu predpovedí.
-            Môžete si vyskúšať nastaviť si parametre podľa vašej predstavy a sledovať, ako naše správanie ovplyvňuje vývoj ochorenia. 
-            Taktiež zavedením karantény môžete vidieť známy “flattening the curve” - oddiaľovanie náporu a získavanie času, o ktorý momentálne všektým krajinám ide. 
+            <b> Predvolené hodnoty parametrov sme založili na viacerých štúdiách, na ktoré vás v prípade väčšieho záujme môžeme odkázať, no tak, aby čo najlepšie predstavovali momentálnu situáciu.</b> Taktiež však môžete ich hodnoty meniť podľa vašej predstavy a sledovať, ako naše správanie ovplyvňuje vývoj ochorenia. 
+            <b> Zavedením karantény</b> (naľavo hore) môžete vidieť známy “flattening the curve” - oddiaľovanie náporu a získavanie času, o ktorý momentálne všektým krajinám ide. 
             <i> Model sme si prispôsobili pre lepšie objasnenie situácie, a tým sme trochu znížili presnosť. </i>
           </div>
           <div class="default-text note-block">
-            Na modelovanie šírenia 2019-nCoV sme použili jednoduchý model používaný na infekčné choroby - <a target="_tab" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model"> 
+            Na modelovanie šírenia COVID-19 sme použili jednoduchý model používaný na infekčné choroby - <a target="_tab" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model"> 
             model SEIR.</a> 
             {/* (Susceptible - náchylná, ohrozená skupina obyvateľstva, Exposed - vírus má v tele, ale je v inkubačnej dobe, nie je infekčný, Infected - chorí, 
             infekční jedinci, Removed - skupina obyvateľstva, ktorá je z modelu vylúčená, či už v izolácii, vyliečení alebo mŕtvi).  */}
@@ -52,13 +52,14 @@ export const Notes = () => {
             Každá skupina je popísaná diferenciálnymi rovnicami. 
             Pohyb ľudí, predstavujúci progres ich choroby, je charakterizovaný prechodovými konštantami <Latex>{abg}</Latex>.
             <Latex> $\alpha$</Latex> závisí od inkubačnej doby, <Latex>$\beta$</Latex> od pomeru ľudského kontaktu a šance prenosu a <Latex>$\gamma$</Latex> od infekčného času. 
-            Viac podrobností nájdete
-            <a target="_tab" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model"> tu </a>
-             alebo v  
-             <a href="https://s3.amazonaws.com/academia.edu.documents/3254012/seirs_camq.pdf?response-content-disposition=inline%3B%20filename%3DGlobal_Stability_for_the_SEIR_Model_In_E.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWOWYYGZ2Y53UL3A%2F20200319%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200319T173410Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=556b99940e11ed47a35d23b3999da6ef2294638a1da49ddd91f1f8a0e58456f4"> jednom </a> z veľa vedeckých článkov na túto tému. 
+            Viac podrobností nájdete <a target="_tab" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">tu</a> alebo v <a href="https://arxiv.org/pdf/1705.01079.pdf">jednom</a> z veľa vedeckých článkov na túto tému. 
 
           <div class="note-block">
             {isCompact ? <Latex>{`${diffEq1}$$$$${diffEq2}`}</Latex> : <Latex>{diffEq1 + diffEq2}</Latex>}
+          </div>
+
+          <div class="note-block">
+           Základné reprodukčné číslo <Latex>$R_0$</Latex> pre predvolené hodnoty v našom modeli prepočítavame z pomeru ľudského kontaktu a šance prenosu choroby pre lepšiu ilustráciu významu sociálneho dištancovania tak, aby sedelo s momentálnymi odhadmi expertov. Nie je to bežná prax pri ochoreniach šíriacich sa kvapôčkovo, no pre naše účely nám to príde zaujímavé. 
           </div>
           </div>
         </Row>

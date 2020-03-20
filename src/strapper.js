@@ -4,9 +4,11 @@ import { CovidSpreadModel } from './components/CovidSpreadModel';
 import { SimpleHorizontalSlider } from './components/SimpleHorizontalSlider';
 import { curveDescriptions, curveColors } from './model/data';
 import { Notes } from './components/Notes'
+import { Footer } from './components/footer.js'
 import Checkbox from 'rc-checkbox';
 import 'rc-checkbox/assets/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import Latex from 'react-latex-next';
 
 const defaultPopulationSize = 50;
 const defaultIncubationTime = 5.1;
@@ -137,6 +139,7 @@ export const Strapper = () => {
           <Fragment>{layoutSliders} {layoutGraph(true)} </Fragment>
         }
       </Row>
+        <Footer />
     </Container>
   )
 }

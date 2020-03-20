@@ -46,7 +46,7 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
 
   const simulation = seirModel(initialValues, {alpha, beta, gamma, isQuarantined, quarantinePower, quarantineStart}, t);
   const normalised = normaliseToArray(simulation, 1/dt, N);
-  const r0 = contactRate * probabilityOfTransmission * infectionTime;
+  const r0 = (contactRate * probabilityOfTransmission * infectionTime).toFixed(2);
 
   const [isCompact, setIsCompact] = useState(window.innerWidth < 800);
   useEffect(() => {
@@ -63,10 +63,12 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
 
   // const w = window.innerWidth > 
 
+  
+
   return (
     <div class="chart-wrapper">
       <div class="r0 default-text">
-        <Latex>$R_0$</Latex> pre túto konfiguráciu = { r0.toFixed(2)}
+        <Latex>$R_0$</Latex> = {r0} (základné reprodukčné číslo, ktoré určuje rýchlosť šírenia vírusu)
       </div>
       <ResponsiveContainer height={300} width={"100%"}> 
       <AreaChart

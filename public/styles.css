@@ -65,8 +65,8 @@
 }
 
 span.rc-checkbox-checked.checkbox-S span.rc-checkbox-inner  {
-  background-color: #f1f740;
-  border-color: #f1f740;
+  background-color: #239e81;
+  border-color: #239e81;
 }
 
 span.rc-checkbox-checked.checkbox-E span.rc-checkbox-inner {
@@ -120,4 +120,10 @@ span.rc-checkbox-checked.checkbox-H span.rc-checkbox-inner  {
 
 .note-block {
   margin-top: 1rem;
+}
+
+.footer {
+  text-align: justify;
+  float: left;
+
 }
