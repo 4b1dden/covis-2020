@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cf2a386a3da51c65e797df6ab0e85748",
+    "revision": "58e075fc0286677856d18e07870711e1",
     "url": "/covis-2020/index.html"
   },
   {
-    "revision": "7abadb76a5b3882fe3b4",
+    "revision": "f2d1e0c37f7aa1f90d4c",
     "url": "/covis-2020/static/css/2.8daec798.chunk.css"
   },
   {
-    "revision": "50a86cbd9d88a4843fbd",
+    "revision": "50c1bdee67b0cf2e0b7f",
     "url": "/covis-2020/static/css/main.d1b05096.chunk.css"
   },
   {
-    "revision": "7abadb76a5b3882fe3b4",
-    "url": "/covis-2020/static/js/2.bfe00bcd.chunk.js"
+    "revision": "f2d1e0c37f7aa1f90d4c",
+    "url": "/covis-2020/static/js/2.1dcfba20.chunk.js"
   },
   {
     "revision": "f286d1a9ce6e5be678869cc892d2a512",
-    "url": "/covis-2020/static/js/2.bfe00bcd.chunk.js.LICENSE.txt"
+    "url": "/covis-2020/static/js/2.1dcfba20.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "50a86cbd9d88a4843fbd",
-    "url": "/covis-2020/static/js/main.18ebdfb3.chunk.js"
+    "revision": "50c1bdee67b0cf2e0b7f",
+    "url": "/covis-2020/static/js/main.e4fdc22c.chunk.js"
   },
   {
     "revision": "0fdda9c3735bb01edc65",

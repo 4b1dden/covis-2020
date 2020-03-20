@@ -2,6 +2,10 @@
   width: 100%;
 }
 
+.App {
+  width: 100%;
+}
+
 .containerStrapper {
   max-width: initial;
   margin-left: 0;
