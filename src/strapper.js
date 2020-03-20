@@ -55,7 +55,7 @@ export const Strapper = () => {
         <span className="calculator-title">Pandemická kalkulačka</span>
       </Row>
       <Row>
-        <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+        <Col xs={12} sm={12} md={4} lg={4} xl={4}>
           <div className="curve-selection-wrapper">
             {curveSelection.map(curveId => <div>
               <Checkbox className={`checkbox-${curveId}`} name={curveId} checked={curves[curveId]} onChange={event => onCurveSelect(event.target)} /> 
@@ -103,7 +103,7 @@ export const Strapper = () => {
             Šanca prenosu choroby pri blízkom kontakte medzi ohrozeným a infikovaným.
           </SimpleHorizontalSlider>
         </Col>
-        <Col xs={8} sm={8} md={8} lg={8} xl={8}>
+        <Col xs={12} sm={12} md={8} lg={8} xl={8}>
           <CovidSpreadModel 
             N={populationSize}
             incubationTime={incubationTime}

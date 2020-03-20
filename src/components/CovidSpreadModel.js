@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { seirModel } from '../model/SEIR';
 import { normaliseToArray } from '../model/normalisation'
 import {
-  XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart, Label, ReferenceLine, Customized, ReferenceDot
+  XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart, Label, ReferenceLine, Customized, ReferenceDot, ResponsiveContainer
 } from 'recharts';
 import { curveColors, curveFormatters, curveStackId, curveFills } from '../model/data';
 import { CustomizedReferenceLineLabel } from './CustomizedReferenceLineLabel';
@@ -48,19 +48,28 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
   const normalised = normaliseToArray(simulation, 1/dt, N);
   const r0 = contactRate * probabilityOfTransmission * infectionTime;
 
+  const [isCompact, setIsCompact] = useState(window.innerWidth < 800);
+  useEffect(() => {
+    const handleResize = () => setIsCompact(window.innerWidth < 800);
+
+    window.addEventListener('resize', handleResize)
+  })
+
   // useMemo(() => getRealData().then(data => {
   //   setRealWorldData(
   //     parseRealData(data)
   //   );
   // }), [])
 
+  // const w = window.innerWidth > 
+
   return (
     <div class="chart-wrapper">
       <div class="r0 default-text">
         <Latex>$R_0$</Latex> pre túto konfiguráciu = { r0.toFixed(2)}
       </div>
-        <AreaChart
-          width={800}
+      <ResponsiveContainer height={300} width={"100%"}> 
+      <AreaChart
           height={300}
           data={normalised}
           margin={{
@@ -90,7 +99,7 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
           : ""
         }
 
-        <XAxis name="LIL uZI" label={<span>Den</span>} interval={9} dataKey="T">
+        <XAxis name="LIL uZI" tickCount={10} label={<span>Den</span>} interval={isCompact ? 49 : 19} dataKey="T">
           <Label value="dní od začiatku" offset={-5} position={"bottom"}/>
         </XAxis>
         <YAxis tickFormatter={val => numberWithCommas(val)}/>
@@ -107,6 +116,8 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
           : ""
         )}
       </AreaChart>
+      </ResponsiveContainer>
+       
     </div>
    
   )

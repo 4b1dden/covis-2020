@@ -1,14 +1,17 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import 'katex/dist/katex.min.css';
 import Latex from 'react-latex-next';
 
 const abg = '$\\alpha, \\beta, \\gamma$';
-const diffEq = `
+const diffEq1 = `
   $$
   \\frac{dS}{dt}=-\\beta SI \\qquad
   \\frac{dE}{dt}={\\beta}SI-\\alpha{E} \\qquad
+  
+  `
+const diffEq2 = `
   \\frac{dI}{dt}=\\alpha{E}-\\gamma{I} \\qquad
   \\frac{dR}{dt}=\\gamma{I}
   $$
@@ -16,6 +19,13 @@ const diffEq = `
 `
 
 export const Notes = () => {
+  const [isCompact, setIsCompact] = useState(window.innerWidth < 800);
+  useEffect(() => {
+    const handleResize = () => setIsCompact(window.innerWidth < 800);
+
+    window.addEventListener('resize', handleResize)
+  })
+
   return (
     <Container>
       <div className="notes-wrapper">
@@ -48,9 +58,7 @@ export const Notes = () => {
              <a href="https://s3.amazonaws.com/academia.edu.documents/3254012/seirs_camq.pdf?response-content-disposition=inline%3B%20filename%3DGlobal_Stability_for_the_SEIR_Model_In_E.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWOWYYGZ2Y53UL3A%2F20200319%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20200319T173410Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=556b99940e11ed47a35d23b3999da6ef2294638a1da49ddd91f1f8a0e58456f4"> jednom </a> z veľa vedeckých článkov na túto tému. 
 
           <div class="note-block">
-            <Latex>
-              {diffEq}
-            </Latex>
+            {isCompact ? <Latex>{`${diffEq1}$$$$${diffEq2}`}</Latex> : <Latex>{diffEq1 + diffEq2}</Latex>}
           </div>
           </div>
         </Row>
