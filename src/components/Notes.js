@@ -48,7 +48,7 @@ export const Notes = () => {
             Každá skupina je popísaná diferenciálnymi rovnicami. 
             Pohyb ľudí, predstavujúci progres ich choroby, je charakterizovaný prechodovými konštantami <Latex>{abg}</Latex>.
             <Latex> $\alpha$</Latex> závisí od inkubačnej doby, <Latex>$\beta$</Latex> od pomeru ľudského kontaktu a šance prenosu a <Latex>$\gamma$</Latex> od infekčného času. 
-            Viac podrobností nájdete <a target="_tab" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">tu</a> alebo v <a href="https://arxiv.org/pdf/1705.01079.pdf">jednom</a> z veľa vedeckých článkov na túto tému. 
+            Viac podrobností nájdete <a target="_tab" href="https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SEIR_model">tu</a> alebo v <a href="https://arxiv.org/pdf/1705.01079.pdf">jednom</a> z veľa vedeckých článkov na túto tému, prípadne v <a target="_tab" href="https://github.com/4b1dden/covis-2020">zdrojovóm kóde</a>. 
 
           <div class="note-block">
             {isCompact ? <Latex>{`${diffEq1}$$$$${diffEq2}`}</Latex> : <Latex>{diffEq1 + diffEq2}</Latex>}

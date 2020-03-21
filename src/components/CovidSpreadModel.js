@@ -67,6 +67,9 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
 
   return (
     <div class="chart-wrapper">
+      <div class="left default-text">
+        Pre čo najlepší zážitok odporúčame použiť počítač či tablet, nie mobil. 
+      </div>
       <div class="r0 default-text">
         <Latex>$R_0$</Latex> = {r0} (základné reprodukčné číslo, ktoré určuje rýchlosť šírenia vírusu)
       </div>
