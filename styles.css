@@ -125,5 +125,8 @@ span.rc-checkbox-checked.checkbox-H span.rc-checkbox-inner  {
 .footer {
   text-align: justify;
   float: left;
+}
 
+.left {
+  float: left;
 }

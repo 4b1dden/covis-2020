@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/covis-2020/static/css/main.d1b05096.chunk.css",
-    "main.js": "/covis-2020/static/js/main.9eb7801d.chunk.js",
-    "main.js.map": "/covis-2020/static/js/main.9eb7801d.chunk.js.map",
+    "main.js": "/covis-2020/static/js/main.e9030e7a.chunk.js",
+    "main.js.map": "/covis-2020/static/js/main.e9030e7a.chunk.js.map",
     "runtime-main.js": "/covis-2020/static/js/runtime-main.ea0e90ae.js",
     "runtime-main.js.map": "/covis-2020/static/js/runtime-main.ea0e90ae.js.map",
     "static/css/2.8daec798.chunk.css": "/covis-2020/static/css/2.8daec798.chunk.css",
     "static/js/2.e4a0d80d.chunk.js": "/covis-2020/static/js/2.e4a0d80d.chunk.js",
     "static/js/2.e4a0d80d.chunk.js.map": "/covis-2020/static/js/2.e4a0d80d.chunk.js.map",
     "index.html": "/covis-2020/index.html",
-    "precache-manifest.05c31384ad0f0904227be37e25dd6372.js": "/covis-2020/precache-manifest.05c31384ad0f0904227be37e25dd6372.js",
+    "precache-manifest.07d86c4df983b733bbc6f5a8f484a742.js": "/covis-2020/precache-manifest.07d86c4df983b733bbc6f5a8f484a742.js",
     "service-worker.js": "/covis-2020/service-worker.js",
     "static/css/2.8daec798.chunk.css.map": "/covis-2020/static/css/2.8daec798.chunk.css.map",
     "static/css/main.d1b05096.chunk.css.map": "/covis-2020/static/css/main.d1b05096.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.8daec798.chunk.css",
     "static/js/2.e4a0d80d.chunk.js",
     "static/css/main.d1b05096.chunk.css",
-    "static/js/main.9eb7801d.chunk.js"
+    "static/js/main.e9030e7a.chunk.js"
   ]
 }
