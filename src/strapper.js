@@ -134,7 +134,13 @@ export const Strapper = () => {
       </Row>
       <Row>
         {isCompact ? 
-          <Fragment>{layoutGraph(false)} {layoutSliders} <Col><Notes /></Col>  </Fragment>
+          <Fragment>
+            {layoutGraph(false)}
+            <div style={{marginTop: '6rem'}}>
+
+            {layoutSliders}
+            </div>
+            <Col><Notes /></Col>  </Fragment>
           :
           <Fragment>{layoutSliders} {layoutGraph(true)} </Fragment>
         }
