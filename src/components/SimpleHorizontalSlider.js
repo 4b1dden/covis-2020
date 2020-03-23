@@ -23,6 +23,7 @@ export const SimpleHorizontalSlider = (props) => {
         <div className="slider-title">{title}</div>
         <div className="default-text">{props.children}</div>
         <div className='slider-value'>{valueFormatter ? showValue ? valueFormatter ? valueFormatter(showValue) : showValue : valueFormatter(value) : value}</div>
+        {/* <div className='slider-value left'>reset</div> */}
       </div>
       <Slider
         className="var-slider"

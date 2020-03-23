@@ -36,9 +36,9 @@ export const Notes = () => {
         </Row>
         <Row>
           <div class="default-text note-block">
-            Vytvorili sme túto kalkulačku s cieľom lepšie ilustrovať momentálnu situáciu a dôležitosť opatrení, ktoré sú momentálne takmer na celom svete. 
+            Vytvorili sme túto kalkulačku s cieľom lepšie ilustrovať terajšiu situáciu a dôležitosť opatrení, ktoré sú momentálne takmer na celom svete. 
             Účelom nášho modelu nie je čo najpresnejšie predpovedať budúcnosť, ale snaha priblížiť matematické modelovanie širšej verejnosti a poskytnúť jednoduchú vizualizáciu predpovedí.
-            <b> Predvolené hodnoty parametrov sme založili na viacerých štúdiách, na ktoré vás v prípade väčšieho záujme môžeme odkázať, no tak, aby čo najlepšie predstavovali momentálnu situáciu.</b> Taktiež však môžete ich hodnoty meniť podľa vašej predstavy a sledovať, ako naše správanie ovplyvňuje vývoj ochorenia. 
+            <b> Predvolené hodnoty parametrov sme založili na viacerých štúdiách, na ktoré vás v prípade väčšieho záujmu môžeme odkázať, no tak, aby čo najlepšie predstavovali momentálnu situáciu.</b> Taktiež však môžete ich hodnoty meniť podľa vašej predstavy a sledovať, ako naše správanie ovplyvňuje vývoj ochorenia. 
             <b> Zavedením karantény</b> (naľavo hore) môžete vidieť známy “flattening the curve” - oddiaľovanie náporu a získavanie času, o ktorý momentálne všektým krajinám ide. 
             <i> Model sme si prispôsobili pre lepšie objasnenie situácie, a tým sme trochu znížili presnosť. </i>
           </div>

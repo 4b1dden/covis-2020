@@ -12,7 +12,11 @@
 }
 
 .var-slider {
-  /* background-color: rgb(144, 144, 144); */
+  margin-bottom: 0;
+}
+
+.slider {
+  margin-bottom: 1rem;;
 }
 
 .chart-wrapper {
@@ -121,6 +125,7 @@ span.rc-checkbox-checked.checkbox-H span.rc-checkbox-inner  {
 .note-block {
   margin-top: 1rem;
 }
+
 
 .footer {
   text-align: justify;

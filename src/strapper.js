@@ -10,7 +10,7 @@ import 'rc-checkbox/assets/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Latex from 'react-latex-next';
 
-const defaultPopulationSize = 50;
+const defaultPopulationSize = 69; // nice
 const defaultIncubationTime = 5.1;
 const defaultInfectionTime = 2.38;
 const defaultContactRate = 20;
@@ -18,6 +18,7 @@ const defaultProbabilityOfTransmission = 1/18;
 const defaultQuarantinePower = .5;
 const curveSelection = ["S", "E", "I", "R", "H"];
 const defaultQuarantineStart = 20;
+const defaultInitialCases = 1;
 
 const defaultSliderProps = {
   min: 0,
@@ -38,10 +39,11 @@ const logslider = position => {
 }
 
 export const Strapper = () => {
-  const [curves, setCurves] = useState({S: false, E: true, I: true, R: true})
+  const [curves, setCurves] = useState({S: true, E: true, I: true, R: true})
   const onCurveSelect = (target) => setCurves({...curves, [target.name]: target.checked})
 
   const [populationSize, setPopulationSize] = useState(logslider(defaultPopulationSize));
+  const [initialCases, setInitialCases] = useState(defaultInitialCases);
   const [populationSizeSlider, setPopulationSizeSlider] = useState(defaultPopulationSize)
   const [incubationTime, setIncubationTime] = useState(defaultIncubationTime);
   const [infectionTime, setInfectionTime] = useState(defaultInfectionTime);
@@ -71,6 +73,7 @@ export const Strapper = () => {
         quarantineStart={quarantineStart}
         probabilityOfTransmission={probabilityOfTransmission}
         curveList={curves}
+        initialCases={initialCases}
       />
       {hasNotes ? <Notes /> : ""}
     </Col>
@@ -121,8 +124,11 @@ export const Strapper = () => {
         href="https://www.fhi.no/en/op/novel-coronavirus-facts-advice/advice-to-health-personnel/definitions-of-probable-and-confirmed-cases-of-coronavirus-covid-19-and-con/" 
         > blízkych kontaktov </a>, ktoré majú jedinci v populácii. Ťažko opísateľná veličina pri chorobách širacich sa kvapôčkami, ale zavádzame ju pre ilustráciu.
       </SimpleHorizontalSlider>
-      <SimpleHorizontalSlider valueFormatter={val => `${(val.toFixed(4) * 100)}%`}  {...defaultSliderProps} title={"Šanca prenosu choroby"} value={probabilityOfTransmission} setValue={setProbabilityOfTransmission} max={1} step={0.0001}>
+      <SimpleHorizontalSlider valueFormatter={val => `${((val.toFixed(4) * 100)).toString().substr(0, 5)}%`}  {...defaultSliderProps} title={"Šanca prenosu choroby"} value={probabilityOfTransmission} setValue={setProbabilityOfTransmission} max={1} step={0.0001}>
         Šanca prenosu choroby pri blízkom kontakte medzi ohrozeným a infikovaným.
+      </SimpleHorizontalSlider>
+      <SimpleHorizontalSlider {...defaultSliderProps} title={"Začiatočný počet nakazených"} value={initialCases} setValue={setInitialCases} min={1} max={100} step={1}>
+        Počet nakazených v dni začiatku simulácie.
       </SimpleHorizontalSlider>
     </Col>
     )

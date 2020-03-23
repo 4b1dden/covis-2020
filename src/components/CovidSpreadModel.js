@@ -18,7 +18,8 @@ type CovidSpreadModelProps = {
   isQuarantined: Boolean,
   quarantinePower: Number,
   quarantineStart: Number,
-  curveList: Object
+  curveList: Object,
+  initialCases: Number
 }
 
 const t_max = 200;
@@ -28,13 +29,24 @@ const numberWithCommas = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
 export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
   const [realWorldData, setRealWorldData] = useState([]);
-  const { N, incubationTime, infectionTime, contactRate, probabilityOfTransmission, isQuarantined = false, quarantinePower, curveList, quarantineStart } = props;
+  const { 
+      N,
+      incubationTime, 
+      infectionTime, 
+      contactRate, 
+      probabilityOfTransmission, 
+      isQuarantined = false, 
+      quarantinePower, 
+      curveList, 
+      quarantineStart, 
+      initialCases = 1
+    } = props;
   let t = [];
   for (let i = 0; i < t_max; i += dt) t.push(i);
 
   const initialValues = {
-    S0: 1 - 1/N,
-    E0: 1/N,
+    S0: 1 - initialCases/N,
+    E0: initialCases/N,
     I0: 0,
     R0: 0,
     H0: 0
@@ -46,7 +58,14 @@ export const CovidSpreadModel = (props: CovidSpreadModelProps) => {
 
   const simulation = seirModel(initialValues, {alpha, beta, gamma, isQuarantined, quarantinePower, quarantineStart}, t);
   const normalised = normaliseToArray(simulation, 1/dt, N);
-  const r0 = (contactRate * probabilityOfTransmission * infectionTime).toFixed(2);
+  const r0 = (
+      contactRate * probabilityOfTransmission * infectionTime * 
+      (isQuarantined ? 
+        (1 - Math.pow(quarantinePower, 2))
+        : 1
+        )
+      )
+      .toFixed(2);
 
   const [isCompact, setIsCompact] = useState(window.innerWidth < 800);
   useEffect(() => {
