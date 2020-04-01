@@ -1,5 +1,5 @@
 # covis-2020
-pandemic calculator for covid-2020
+pandemic calculator for covid-2019
 
 to run the project locally
 1. clone the repository
